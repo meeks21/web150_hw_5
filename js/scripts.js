@@ -1,19 +1,26 @@
 
 
 
+// Creates variables
+var sum = 0;
+var timesRun = 0;
+var scores = 0;
 
-var scores = [];
+// Creates a function
+averageScore();
 
-while(true){
-    var input = prompt("Enter test score \r\n" + "Or enter 999 to end entries");
+function averageScore(){
+    // places a while loop inside of the function that collects users input and stores it in the scores variable. The loop ends when 999 is entered
+    while(scores !== 999) {
+        scores = parseInt(prompt("Enter test score\n" + "Or enter 999 to end entries\n")); /*parseInt function converts the input which will be viewed as a strings into intergers */
 
-    if(input === 999 || input === null){
-        break;
-        document.write("Average score is ");
+        sum += scores;  /*plus equals adds each score that is entered to the previous score*/
+
+        timesRun++;    /*Increments the timesRun variable by one each time the loop runs */
         
     }
-    scores.push(parseInt(input));
-    console.log(scores);
-
-
 }
+
+var average = (sum - 999)/(timesRun - 1); /*Must subtract the last entry of 999 from the sum total and subtract 1 from the timesRun variable because we dont want to include the last entry */
+alert("Average score is " + average);
+
